@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Authors</h1>
+      {% for author in authors %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ author.name }}</a>
+            </div>
+            <p class="article-content">{{ author.summary }}</p>
+            <p class="article-content">Core skills: {{author.core_skills}}</p>
+          </div>
+        </article>
+      <!-- <h1>{{ author.name}}</h1>
+      <p>{{author.summary}}</p>
+      <p>Core skills: {{author.core_skills}}</p> -->
+      {% endfor %}
+{% endblock %}

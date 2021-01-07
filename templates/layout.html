@@ -15,6 +15,10 @@
     {% endif %}
   </head>
   <body>
+
+    <!--
+    code src: https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog/02-Templates
+   -->
     <header class="site-header">
           <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
             <div class="container">
@@ -39,6 +43,15 @@
         <main role="main" class="container">
           <div class="row">
             <div class="col-md-8">
+              {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                      {{ message }}
+                    </div>
+                  {% endfor %}
+                {% endif %}
+              {% endwith %}
               {% block content %}
 
               {% endblock %}

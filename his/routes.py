@@ -2,20 +2,28 @@ from flask import render_template, url_for, flash, redirect
 from his import app
 from his.forms import RegistrationForm, LoginForm
 from his.authors import authors
-from his import conn
+import sqlite3
+
+
+newDoctorAccountScript = '''INSERT INTO doctor_account (username,email,name,phone,password) VALUES (?,?,?,?,?)'''
+newPatientAccountScript = '''INSERT INTO doctor_account (username,email,name,phone,password) VALUES (?,?,?,?,?)'''
+
+# init the database
+conn = sqlite3.connect('database.sqlite')
+cur = conn.cursor()
 
 # **************************************************************************
 #                             ROOT
 # **************************************************************************
 @app.route('/')
-def hello_world():
+def home():
     return render_template("home.html")
 
 # **************************************************************************
 #                             ROOT
 # **************************************************************************
 @app.route('/about')
-def about_function():
+def about():
     return render_template("about.html", authors=authors, title="About")
 
 # **************************************************************************
@@ -25,6 +33,28 @@ def about_function():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
+        conn = sqlite3.connect('database.sqlite')
+        cur = conn.cursor()
+        if form.doctor.data:
+            # cur = conn.cursor()
+            cur.execute(newDoctorAccountScript, (form.username.data,
+                                                 form.email.data,
+                                                 form.name.data,
+                                                 form.phone.data,
+                                                 form.password.data, ))
+            conn.commit()
+        elif form.patient.data:
+            # cur = conn.cursor()
+            cur.execute(newPatientAccountScript, (form.username.data,
+                                                 form.email.data,
+                                                 form.name.data,
+                                                 form.phone.data,
+                                                 form.password.data, ))
+            conn.commit()
+        else:
+            flash('please select type of account, patient or doctor!', 'danger')
+            return render_template('register.html', title='Register', form=form)
+
         flash(f'Account created for {form.username.data}!', 'success')
         return redirect(url_for('home'))
     return render_template('register.html', title='Register', form=form)
@@ -36,7 +66,7 @@ def register():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        if form.email.data == 'admin@blog.com' and form.password.data == 'password':
+        if form.email.data == 'admin@his.com' and form.password.data == 'admin':
             flash('You have been logged in!', 'success')
             return redirect(url_for('home'))
         else:

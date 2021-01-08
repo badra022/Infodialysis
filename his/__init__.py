@@ -71,6 +71,7 @@ CREATE TABLE Accounts(
 
 cur.execute(script, multi=True)
 
+cur.close()
 
 
 

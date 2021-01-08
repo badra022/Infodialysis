@@ -1,28 +1,17 @@
 from flask import Flask
-import mysql.connector
+import sqlite3
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] =  '5791628bb0b13ce0c676dfde280ba245'
 
 # init the database
-mydb = mysql.connector.connect(
-        host = "localhost",
-        user = "root",
-        passwd = "mysql")
-cur = mydb.cursor()
+conn = sqlite3.connect('database.sqlite')
+cur = conn.cursor()
 
-cur.execute('''
+cur.executescript('''
 DROP DATABASE IF EXISTS HISDB;
 CREATE DATABASE HISDB;
-''', multi=True)
-
-mydb = mysql.connector.connect(
-        host = "localhost",
-        user = "root",
-        passwd = "mysql",
-        database = "HISDB")
-cur = mydb.cursor()
-
+''')
 
 script = '''
 DROP TABLE IF EXISTS scans;
@@ -69,11 +58,6 @@ CREATE TABLE Accounts(
 );
 '''
 
-cur.execute(script, multi=True)
-
-cur.close()
-
-
-
+cur.executescript(script)
 
 from his import routes

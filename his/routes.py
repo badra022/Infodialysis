@@ -1,26 +1,26 @@
-from flask import Flask, render_template, url_for, flash, redirect
+from flask import render_template, url_for, flash, redirect
 from his import app
 from his.forms import RegistrationForm, LoginForm
 from his.authors import authors
-import mysql.connector
+from his import conn
 
-mydb = mysql.connector.connect(
-        host = "localhost",
-        user = "root",
-        passwd = "mysql",
-        database = "HISDB")
-
-# cur = mydb.cursor()
-
-
+# **************************************************************************
+#                             ROOT
+# **************************************************************************
 @app.route('/')
 def hello_world():
     return render_template("home.html")
 
+# **************************************************************************
+#                             ROOT
+# **************************************************************************
 @app.route('/about')
 def about_function():
     return render_template("about.html", authors=authors, title="About")
 
+# **************************************************************************
+#                             ROOT
+# **************************************************************************
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
@@ -29,7 +29,9 @@ def register():
         return redirect(url_for('home'))
     return render_template('register.html', title='Register', form=form)
 
-
+# **************************************************************************
+#                             ROOT
+# **************************************************************************
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm()

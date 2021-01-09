@@ -18,7 +18,7 @@ newUserScript = '''INSERT INTO users (username, email) VALUES (?,?)'''
 
 
 class User:
-    def __init__(username, email, img_file):
+    def __init__(self, username, email, img_file):
         self.username = username
         self.email = email
         self.img_file = img_file
@@ -26,10 +26,13 @@ class User:
         conn = sqlite3.connect('database.sqlite')
         cur = conn.cursor()
         cur.execute('''
-        INSERT INTO users (username, email, img_file) VALUES (?,?,?)
-        ''', (self.username, self.email, self.img_file, ))
-        conn.commit()
-        self.id = cur.rowcount
+        SELECT id FROM users WHERE username = ? AND email = ?
+        ''', (self.username, self.email, ))
+        # conn.commit()
+        try:
+            self.id = cur.fetchone()[0]
+        except:
+            self.id = -1
 
     @property
     def is_active(self):
@@ -45,9 +48,12 @@ class User:
 
     def get_id(self):
         try:
-            return text_type(self.id)
+            return str(self.id)
         except AttributeError:
             raise NotImplementedError('No `id` attribute - override `get_id`')
+
+    def __repr__(self):
+        return f"User('{self.username}', '{self.email}', '{self.image_file}')"
 
     @classmethod
     def get_by_id(self, user_id):
@@ -57,7 +63,7 @@ class User:
         q_res = cur.execute('''
         SELECT username, email, img_file FROM users WHERE id = ?
         ''', (user_id,)).fetchone()
-        u = User(username=q_res[0], email=q_res[1], img_file=q_res[2])
+        u = User(q_res[0], q_res[1], q_res[2])
         return u
 
 # # for usage of flask_login
@@ -87,17 +93,21 @@ def getUser(email):
     # # init the database
     conn = sqlite3.connect('database.sqlite')
     cur = conn.cursor()
+    print("retrieving the user account from doctors and patients accounts....")
     cur.execute('''SELECT username, email FROM doctor_account WHERE email=?''', (email,))
     try:
-        return User(username=cur.fetchone()[0], email=cur.fetchone()[1], img_file=cur.fetchone()[2])
+        print("found in doctors accounts!")
+        result = cur.fetchone()
+        return User(result[0], result[1], 'None')
     except:
         pass
     cur.execute('''SELECT username, email FROM patient_account WHERE email=?''', (email,))
     try:
-        return User(username=cur.fetchone()[0], email=cur.fetchone()[1], img_file=cur.fetchone()[2])
+        result = cur.fetchone()
+        return User(result[0], result[1], 'None')
     except:
         pass
-    return False
+    return None
 
 def getPassword(user):
     # # init the database
@@ -177,9 +187,15 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         if form.email.data == 'admin@his.com' and form.password.data == 'admin':
+            print("---------------------------------")
             user = getUser(form.email.data)
             if not user:
-                user = User(username='admin', email='admin@his.com', img_file='./admin.png')
+                ## init the database
+                conn = sqlite3.connect('database.sqlite')
+                cur = conn.cursor()
+                cur.execute(newUserScript, ('admin', 'admin@his.com', ))
+                conn.commit()
+                user = User('admin', 'admin@his.com', './admin.png')
             login_user(user, remember=form.remember.data)
             flash('You have been logged in! Welcome Admin', 'success')
             return redirect(url_for('home'))
@@ -191,11 +207,11 @@ def login():
                     #the user exist and the password is matched
                     login_user(user, remember=form.remember.data)
                     flash(f'You have been logged in! Welcome {user.username}', 'success')
-                    next_page = request.args.get('next')
-                    return redirect(next_page) if next_page else redirect(url_for('home'))
+                    # next_page = request.args.get('next')
+                    return redirect(url_for('home'))
                 else:
                     flash('Login Unsuccessful. Please check username and password', 'danger')
-            flash('Login Unsuccessful. Please check username and password', 'danger')
+            # flash('Login Unsuccessful. Please check username and password', 'danger')
     return render_template('login.html', title='Login', form=form)
 
 @app.route("/logout")

@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField, DateTimeField, FileField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 import sqlite3
 
@@ -64,10 +64,50 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('That email is taken. Please choose a different one.')
 
 class LoginForm(FlaskForm):
-    # username = StringField('Username', validators =[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators =[DataRequired(), Email()])
     password = PasswordField('password', validators =[DataRequired()])
-    # confirm_password = PasswordField('confirm password',
-                    # validators =[DataRequired(), EqualTo('password')])
     remember = BooleanField('Remember Me')
+
     submit = SubmitField('Login')
+
+class ContactForm(FlaskForm):
+    email = StringField('Email', validators =[DataRequired(), Email()])
+    text = TextAreaField('Note')
+
+    submit = SubmitField('Submit')
+
+    def validate_email(self, email):
+
+        # get a similar field in mydb
+        # init the database
+        conn = sqlite3.connect('database.sqlite')
+        cur = conn.cursor()
+        cur.execute('''SELECT * FROM patient_account WHERE email = ?''', (email.data, ))
+        data = False
+        try:
+            data = cur.fetchone()[0]
+        except:
+            pass
+
+        if not data:
+            raise ValidationError('This account does not exist, please register first!')
+
+        cur.execute('''SELECT email FROM doctor_account WHERE email = ?''', (email.data, ))
+        try:
+            data = cur.fetchone()[0]
+        except:
+            pass
+
+        if not data:
+            raise ValidationError('This account does not exist, please register first!')
+
+
+class BookAppointment(FlaskForm):
+    doctor = StringField('name', validators =[DataRequired(), Length(min=2, max=30)])
+    time = DateTimeField('time')
+
+    submit = SubmitField('Submit')
+
+class scan(FlaskForm):
+    file = FileField('upload', validators =[DataRequired()])
+    submit = SubmitField('add')

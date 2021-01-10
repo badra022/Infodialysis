@@ -34,7 +34,7 @@
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav right-nav">
                   {% if current_user.is_authenticated %}
-                    <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
+                    <a class="nav-item nav-link" href="{{ url_for('account', usr=current_user.username) }}">Account</a>
                     <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
                   {% else %}
                     <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
@@ -57,19 +57,26 @@
                   {% endfor %}
                 {% endif %}
               {% endwith %}
-              {% block content %}
-
-              {% endblock %}
+              {% block content %} {% endblock %}
             </div>
             <div class="col-md-4">
               <div class="content-section">
                 <h3>Our Sidebar</h3>
                 <p class='text-muted'>You can put any information here you'd like.
                   <ul class="list-group">
-                    <li class="list-group-item list-group-item-light">Latest Posts</li>
-                    <li class="list-group-item list-group-item-light">Announcements</li>
-                    <li class="list-group-item list-group-item-light">Calendars</li>
-                    <li class="list-group-item list-group-item-light">etc</li>
+                    {% if current_user.type == 'admin' %}
+                      <li class="list-group-item list-group-item-light"><a href="{{ url_for('users', usr=current_user.username) }}">users</a></li>
+                      <li class="list-group-item list-group-item-light"><a href="{{ url_for('forms', usr=current_user.username) }}">forms</a></li>
+                      <li class="list-group-item list-group-item-light"><a href="{{ url_for('appointments', usr=current_user.username) }}">Book an appointment</a></li>
+                      <li class="list-group-item list-group-item-light"><a href="{{ url_for('patients', usr=current_user.username) }}">patients</a></li>
+                      <li class="list-group-item list-group-item-light"><a href="{{ url_for('doctors', usr=current_user.username) }}">doctors</a></li>
+                    {% elif current_user.type == 'patient' %}
+                      <li class="list-group-item list-group-item-light"><a href="{{ url_for('scans', usr=current_user.username) }}">scans</a></li>
+                      <li class="list-group-item list-group-item-light"><a href="{{ url_for('appointments', usr=current_user.username) }}">appointments</a></li>
+                    {% elif current_user.type == 'doctor'%}
+                      <li class="list-group-item list-group-item-light"><a href="{{ url_for('patients', usr=current_user.username) }}">patients</a></li>
+                      <li class="list-group-item list-group-item-light"><a href="{{ url_for('calender', usr=current_user.username) }}">Calender</a></li>
+                    {% endif %}
                   </ul>
                 </p>
               </div>

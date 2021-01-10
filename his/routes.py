@@ -22,18 +22,26 @@ def load_user(user_id):
 #                             ROOT
 # **************************************************************************
 @app.route('/')
+def root():
+    return redirect(url_for('home'))
+
+# **************************************************************************
+#                             HOME
+# **************************************************************************
+@app.route('/home')
 def home():
     return render_template("home.html")
 
+
 # **************************************************************************
-#                             ROOT
+#                             ABOUT
 # **************************************************************************
 @app.route('/about')
 def about():
     return render_template("about.html", authors=authors, title="About")
 
 # **************************************************************************
-#                             ROOT
+#                             REGISTER
 # **************************************************************************
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -71,7 +79,7 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 # **************************************************************************
-#                             ROOT
+#                             LOGIN
 # **************************************************************************
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -117,7 +125,57 @@ def logout():
 # **************************************************************************
 #                             ACCOUNT
 # **************************************************************************
-@app.route("/account")
+@app.route("/<usr>/account")
 @login_required
-def account():
+def account(usr):
     return render_template('account.html', title='Account')
+
+# **************************************************************************
+#                             ACCOUNT
+# **************************************************************************
+@app.route("/<usr>/users")
+@login_required
+def users(usr):
+    return redirect(url_for('home'))
+# **************************************************************************
+#                             ACCOUNT
+# **************************************************************************
+@app.route("/<usr>/forms")
+@login_required
+def forms(usr):
+    return redirect(url_for('home'))
+# **************************************************************************
+#                             ACCOUNT
+# **************************************************************************
+@app.route("/<usr>/appointments")
+@login_required
+def appointments(usr):
+    return redirect(url_for('home'))
+# **************************************************************************
+#                             ACCOUNT
+# **************************************************************************
+@app.route("/<usr>/patients")
+@login_required
+def patients(usr):
+    return redirect(url_for('home'))
+# **************************************************************************
+#                             ACCOUNT
+# **************************************************************************
+@app.route("/<usr>/doctors")
+@login_required
+def doctors(usr):
+    return redirect(url_for('home'))
+# **************************************************************************
+#                             ACCOUNT
+# **************************************************************************
+@app.route("/<usr>/scans")
+@login_required
+def scans(usr):
+    return redirect(url_for('home'))
+# **************************************************************************
+#                             ACCOUNT
+# **************************************************************************
+@app.route("/<usr>/calender")
+@login_required
+def calender(usr):
+    return redirect(url_for('home'))

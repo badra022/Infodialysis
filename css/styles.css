@@ -1,0 +1,56 @@
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* navbar */
+.navbar-padding{
+  padding:1rem 0;
+}
+.title-container{
+  padding:0;
+}
+.logo{
+  margin-left: 15%;
+}
+.sign-btn{
+  margin-right:10%;
+}
+
+/* features */
+#title{
+  background-color: #308abc;
+  padding: 3% 7%;
+  text-align:center;
+}
+.title-img{
+  width:30%;
+}
+.container-fluid{
+  padding: 0;
+}
+.titleh1{
+  padding-bottom: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 800;
+  color: white;
+}
+
+/* cards */
+#features{
+  text-align: center;
+  margin-top: 3%;
+}
+.card-features{
+  padding: 4% 15%;
+  position: relative;
+}
+.features-icon{
+  color: #68bbfb;
+  margin-bottom: 1.5rem;
+}
+.features-icon:hover{
+  color: #308abc;
+}
+.features-row{
+  padding: 4% 10%;
+}

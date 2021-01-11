@@ -1,8 +1,8 @@
 from myproject import app,db
 from flask import render_template, redirect, request, url_for, flash,abort
 from flask_login import login_user,login_required,logout_user
-from myproject.models import User
-from myproject.forms import LoginForm, RegistrationForm
+from myproject.models import User , Contact
+from myproject.forms import LoginForm, RegistrationForm , ContactForm
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -61,13 +61,36 @@ def register():
     if form.validate_on_submit():
         user = User(email=form.email.data,
                     username=form.username.data,
-                    password=form.password.data)
+                    password=form.password.data,
+                    job = form.job.data,
+                    name = form.name.data,
+                    phone = form.phone.data
+                    )
 
         db.session.add(user)
         db.session.commit()
         flash('Thanks for registering! Now you can login!')
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
+
+@app.route('/contact', methods=['GET', 'POST'])
+
+def contact():
+    form = ContactForm()
+    if form.validate_on_submit():
+        contact = Contact(text = form.text.data,
+                          email = form.email.data,
+                          name = form.name.data
+                          )
+        db.session.add(contact)
+        db.session.commit()
+        flash('Thanks for your meassage')
+        return redirect(url_for('home'))
+    return render_template('contact.html', form=form)
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

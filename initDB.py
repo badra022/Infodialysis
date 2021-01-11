@@ -18,8 +18,7 @@ CREATE TABLE doctor_account(
     email TEXT,
     name TEXT,
     phone TEXT,
-    password TEXT,
-    form_id INTEGER
+    password TEXT
 );
 
 CREATE TABLE patient_account(
@@ -28,13 +27,13 @@ CREATE TABLE patient_account(
     email TEXT,
     name TEXT,
     phone TEXT,
-    password TEXT,
-    form_id INTEGER
+    password TEXT
 );
 
 CREATE TABLE examinations(
     doctor_id INTEGER,
-    patient_id INTEGER
+    patient_id INTEGER,
+    time TEXT
 );
 
 CREATE TABLE form(
@@ -45,7 +44,8 @@ CREATE TABLE form(
 
 CREATE TABLE scans(
     patient_id INTEGER,
-    file_link TEXT
+    file_link TEXT,
+    doctor_id INTEGER
 );
 
 CREATE TABLE users(

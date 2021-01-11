@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+
+  {{ current_user.type == 'patient'}}
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+  {{ elif current_user.type == 'admin' }}
+    <div class="content-section">
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+          
+            <legend class="border-bottom mb-4">Book an Appointment</legend>
+            <div class="form-group">
+                {{ form.doctor.label(class="form-control-label") }}
+                {{ form.doctor(class="form-control form-control-lg") }}
+            </div>
+            <div class="form-group">
+                {{ form.time.label(class="form-control-label") }}
+                {{ form.time(class="form-control form-control-lg") }}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+      </form>
+    </div>
+
+{% endblock %}

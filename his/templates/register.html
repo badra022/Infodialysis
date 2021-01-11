@@ -67,12 +67,30 @@
                     {% endif %}
                 </div>
                 <div class="form-check">
-                    {{ form.doctor(class="form-check-input") }}
-                    {{ form.doctor.label(class="form-check-label") }}
+                  {% if form.doctor.errors %}
+                      {{ form.doctor(class="form-check-input is-invalid") }}
+                      <div class="invalid-feedback">
+                          {% for error in form.doctor.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.doctor(class="form-check-input") }}
+                  {% endif %}
+                  {{ form.doctor.label(class="form-check-label") }}
                 </div>
                 <div class="form-check">
-                    {{ form.patient(class="form-check-input") }}
-                    {{ form.patient.label(class="form-check-label") }}
+                  {% if form.doctor.errors %}
+                      {{ form.doctor(class="form-check-input is-invalid") }}
+                      <div class="invalid-feedback">
+                          {% for error in form.doctor.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.doctor(class="form-check-input") }}
+                  {% endif %}
+                  {{ form.doctor.label(class="form-check-label") }}
                 </div>
             </fieldset>
             <div class="form-group">

@@ -15,6 +15,11 @@ class RegistrationForm(FlaskForm):
     patient = BooleanField('I am patient')
     submit = SubmitField('Sign Up')
 
+    # def validate_doctor(self, doctor):
+    #     print("*******************************")
+    #     if doctor.data == self.patient.data:
+    #         raise ValidationError('choose only one type of your account')
+
     def validate_username(self, username):
 
         # get a similar field in mydb
@@ -62,6 +67,7 @@ class RegistrationForm(FlaskForm):
 
         if data:
             raise ValidationError('That email is taken. Please choose a different one.')
+
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators =[DataRequired(), Email()])

@@ -65,6 +65,7 @@
                 <p class='text-muted'>You can put any information here you'd like.
                   <ul class="list-group">
                     {% if current_user.type == 'admin' %}
+
                       <li class="list-group-item list-group-item-light"><a href="{{ url_for('users', usr=current_user.username) }}">users</a></li>
                       <li class="list-group-item list-group-item-light"><a href="{{ url_for('forms', usr=current_user.username) }}">forms</a></li>
                       <li class="list-group-item list-group-item-light"><a href="{{ url_for('appointments', usr=current_user.username) }}">Book an appointment</a></li>

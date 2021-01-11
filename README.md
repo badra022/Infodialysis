@@ -1,2 +1,7 @@
 # database-final-project
-## el Home page 5lst
+## Finished: 
+..* Sign in
+..* Register
+..*About us
+
+## Updated the home page

@@ -1,19 +1,16 @@
 body{
   font-family: 'Montserrat', sans-serif;
 }
+/* ===============INDEX================== */
 
 /* navbar */
 .navbar-padding{
-  padding:1rem 0;
-}
-.title-container{
   padding:0;
 }
-.logo{
-  margin-left: 15%;
-}
-.sign-btn{
-  margin-right:10%;
+
+.container-fluid{
+padding: 1.5% 15%;
+text-align:center;
 }
 
 /* features */
@@ -25,9 +22,7 @@ body{
 .title-img{
   width:30%;
 }
-.container-fluid{
-  padding: 0;
-}
+
 .titleh1{
   padding-bottom: 20px;
   font-family: 'Ubuntu', sans-serif;
@@ -87,15 +82,27 @@ body{
   font-family: 'Ubuntu', sans-serif;
   font-weight: 700;
 }
+.btn-color{
+  background-color: #308abc;
+  border-color: #308abc;
+}
+.btn-color:hover{
+  background-color: #68bbfb;
+  border-color: #68bbfb;
+}
 
 /* Footer */
 #footer{
   background-color: #308abc;
-
+  padding-bottom: 1rem;
   padding-top: 1rem;
   text-align: center;
   color: white;
 }
-.footerp{
-  margin:0;
+.footera{
+  color: white;
 }
+.footerp{
+  margin-top:10px;
+}
+/* ===============INDEX================== */

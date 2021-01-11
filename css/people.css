@@ -2,6 +2,12 @@ body{
   font-family: 'Montserrat', sans-serif;
 }
 
+hr{
+  border:none;
+  border-top:7px dotted #e1e1de;
+  width:7%;
+  margin: 50px auto;
+}
 /* navbar */
 
 .navbar-padding{
@@ -29,7 +35,7 @@ body{
 .titleh2{
   color: white;
   font-family: 'Ubuntu', sans-serif;
-  padding: 3rem 0 1rem;
+
 }
 .content{
   padding: 3% 20%;
@@ -51,12 +57,29 @@ body{
   width: 10%;
 }
 
+/* Book an appointment */
+.appointment-btn{
+  padding: 3% 15%;
+  text-align: center;
+}
+.apph1{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+}
+.btn-color{
+  background-color: #308abc;
+  border-color: #308abc;
+}
+.btn-color:hover{
+  background-color: #68bbfb;
+  border-color: #68bbfb;
+}
 /* Footer */
 
 #footer{
   background-color: #308abc;
   padding-bottom: 1rem;
-  padding-top: 10rem;
+  padding-top: 5rem;
   text-align: center;
   color: white;
 }

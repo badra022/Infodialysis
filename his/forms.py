@@ -78,7 +78,7 @@ class LoginForm(FlaskForm):
 
 class ContactForm(FlaskForm):
     email = StringField('Email', validators =[DataRequired(), Email()])
-    text = TextAreaField('Note')
+    text = TextAreaField('We will hair From you')
 
     submit = SubmitField('Submit')
 
@@ -88,7 +88,7 @@ class ContactForm(FlaskForm):
         # init the database
         conn = sqlite3.connect('database.sqlite')
         cur = conn.cursor()
-        cur.execute('''SELECT * FROM patient_account WHERE email = ?''', (email.data, ))
+        cur.execute('''SELECT * FROM users WHERE email = ?''', (email.data, ))
         data = False
         try:
             data = cur.fetchone()[0]
@@ -98,22 +98,13 @@ class ContactForm(FlaskForm):
         if not data:
             raise ValidationError('This account does not exist, please register first!')
 
-        cur.execute('''SELECT email FROM doctor_account WHERE email = ?''', (email.data, ))
-        try:
-            data = cur.fetchone()[0]
-        except:
-            pass
 
-        if not data:
-            raise ValidationError('This account does not exist, please register first!')
-
-
-class BookAppointment(FlaskForm):
+class BookAppointmentForm(FlaskForm):
     doctor = StringField('name', validators =[DataRequired(), Length(min=2, max=30)])
     time = DateTimeField('time')
 
     submit = SubmitField('Submit')
 
-class scan(FlaskForm):
+class scanForm(FlaskForm):
     file = FileField('upload', validators =[DataRequired()])
     submit = SubmitField('add')

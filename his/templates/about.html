@@ -2,17 +2,22 @@
 {% block content %}
     <h1>Authors</h1>
       {% for author in authors %}
-        <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ author.name }}</a>
+      <!--
+       code src (html + css): https://codepen.io/mperetto/pen/MMryJB
+     -->
+        <div class="container" id="post">
+          <div class="post-wrap m-auto shadow">
+            <div class="row">
+              <div class="col-md-4">
+                <img src={{author.img}} class="img-fluid" alt="">
+              </div>
+              <div class="col-md-5">
+                <h3><a class="mr-2" href="#">{{ author.name }}</a></h3>
+                <p>{{ author.summary }}</p>
+                <p>Core skills: {{author.core_skills}}</p>
+              </div>
             </div>
-            <p class="article-content">{{ author.summary }}</p>
-            <p class="article-content">Core skills: {{author.core_skills}}</p>
           </div>
-        </article>
-      <!-- <h1>{{ author.name}}</h1>
-      <p>{{author.summary}}</p>
-      <p>Core skills: {{author.core_skills}}</p> -->
+        </div>
       {% endfor %}
 {% endblock %}

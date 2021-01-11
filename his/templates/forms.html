@@ -1,6 +1,27 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h1>Home</h1>
+  {% if current_user.type == 'admin' %}
+    <!--
+     code src (html + css): https://codepen.io/mperetto/pen/MMryJB
+   -->
+    {% for row in data %}
+      <div class="container" id="post">
+        <div class="post-wrap m-auto shadow">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="https://images.unsplash.com/photo-1561697300-a44b204ae2ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-5">
+              <h3>{{ row[1] }}</h3>
+              <p>{{ row[2] }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+
+  {% endif %}
 
 {% endblock %}

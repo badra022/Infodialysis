@@ -1,6 +1,6 @@
 from flask import render_template, url_for, flash, redirect
 from his import app, bcrypt, login_manager
-from his.forms import RegistrationForm, LoginForm
+from his.forms import RegistrationForm, LoginForm, ContactForm, BookAppointmentForm, scanForm
 from his.authors import authors
 from flask_login import UserMixin
 import sqlite3
@@ -28,9 +28,20 @@ def root():
 # **************************************************************************
 #                             HOME
 # **************************************************************************
-@app.route('/home')
+@app.route('/home', methods=[ 'POST' , 'GET'])
 def home():
-    return render_template("home.html")
+    form = ContactForm()
+    if form.validate_on_submit():
+        try:
+            conn = sqlite3.connect('database.sqlite')
+            cur = conn.cursor()
+            cur.execute('''INSERT INTO form (email,script) VALUES (?,?)''', (form.email.data, form.text.data, ))
+            conn.commit()
+            flash('done', 'success')
+        except:
+            flash('failed to send your response! please try again later', 'danger')
+
+    return render_template("home.html", form=form)
 
 
 # **************************************************************************
@@ -133,17 +144,31 @@ def account(usr):
 # **************************************************************************
 #                             ACCOUNT
 # **************************************************************************
-@app.route("/<usr>/users")
+@app.route("/<usr>/users", methods=['POST', 'GET'])
 @login_required
 def users(usr):
-    return redirect(url_for('home'))
+    ## init the database
+    conn = sqlite3.connect('database.sqlite')
+    cur = conn.cursor()
+    cur.execute('''SELECT * FROM users''')
+    row_headers = [x[0] for x in cur.description]
+    table = cur.fetchall()
+    return render_template('users.html', title='users', headers= row_headers, data= table)
+
 # **************************************************************************
 #                             ACCOUNT
 # **************************************************************************
-@app.route("/<usr>/forms")
+@app.route("/<usr>/forms", methods=['POST', 'GET'])
 @login_required
 def forms(usr):
-    return redirect(url_for('home'))
+    ## init the database
+    conn = sqlite3.connect('database.sqlite')
+    cur = conn.cursor()
+    cur.execute('''SELECT * FROM form''')
+    # row_headers = [x[0] for x in cur.description]
+    table = cur.fetchall()
+    return render_template('forms.html', title='forms', data= table)
+
 # **************************************************************************
 #                             ACCOUNT
 # **************************************************************************

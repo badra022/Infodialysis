@@ -30,9 +30,9 @@
 
 <body>
 
-  <!-- Nav Bar -->
+  <div class="container-fluid container-fluid-nav">
 
-  <div class="container-fluid">
+    <!-- Nav Bar -->
 
 
     <nav class="navbar navbar-expand-lg navbar-light navbar-padding">
@@ -42,7 +42,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto nav-ul">
+        <ul class="navbar-nav ml-auto mr-auto">
           <li class="nav-item">
             <a class="nav-link" href="index.html">Home</a>
           </li>
@@ -61,8 +61,24 @@
         </ul>
 
       </div>
-  </div>
 
+
+      <!-- ============  When signed out  ============ -->
+      <div class="sign-btn">
+        <a class="btn btn-secondary" href="signin.html" role="button">Sign in</a>
+        <a class="btn btn-outline-secondary" href="register.html" role="button">Register</a>
+      </div>
+
+      <!-- ============  When signed in  ============ -->
+      <!-- <div class="sign-info dropdown">
+        <a class="nav-link dropdown-toggle" style="color:gray;" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hello, Name</a>
+        <div class="dropdown-menu navbar-bgcolor" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Log out</a>
+          </div>
+      </div> -->
+
+  </nav>
+  </div>
   <section id="signup">
     <div class="container shadow-lg p-3 mb-5 bg-white rounded">
 

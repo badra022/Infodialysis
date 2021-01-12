@@ -1,0 +1,68 @@
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* navbar */
+
+.navbar-padding{
+  padding:0;
+}
+.container-fluid{
+  padding: 1.5% 15%;
+  text-align: center;
+}
+
+/* Title */
+#title{
+  padding: 3% 15%;
+  background-color:  #308abc;
+  text-align:center;
+}
+.navtab{
+  color: white;
+}
+
+.active{
+  background-color: #308abc;
+  color: white;
+}
+.titleh2{
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
+  padding: 3rem 0 1rem;
+}
+.content{
+  padding: 3% 20%;
+  text-align: center;
+}
+.content-aboutus2
+{
+  padding: 3% 20%;
+  text-align: left;
+}
+
+.contentanchor{
+  color:#68bbfb;
+}
+.contentanchor:hover{
+  color: #308abc;
+}
+.pic{
+  width: 10%;
+}
+
+/* Footer */
+
+#footer{
+  background-color: #308abc;
+  padding-bottom: 1rem;
+  padding-top: 10rem;
+  text-align: center;
+  color: white;
+}
+.footera{
+  color: white;
+}
+.footerp{
+  margin-top:10px;
+}

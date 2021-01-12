@@ -5,6 +5,8 @@
 * Register
 * About us
 * Contact us
+* Not found
+* Book an appointment
 
 ### Finished layout but need Back-end to complete
 

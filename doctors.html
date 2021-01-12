@@ -29,13 +29,33 @@
 </head>
 
 <body>
+
+  <!-- Side Bar -->
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="doctors.html">Home</a>
+    <a href="doctorsCalendar.html">Calendar</a>
+  </div>
+
+  <span class="sidebar-btn" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+
   <!-- Nav Bar -->
 
   <div class="container-fluid">
 
 
     <nav class="navbar navbar-expand-lg navbar-light navbar-padding">
-      <a class="navbar-brand logo" href="index.html"> <i class="fas fa-hospital fa-2x"></i> </a>
+      <a class="navbar-brand logo" href="doctors.html"> <i class="fas fa-hospital fa-2x"></i> </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -43,7 +63,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mr-auto nav-ul">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="doctors.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="aboutus.html">About us</a>
@@ -70,22 +90,55 @@
   </div>
 
   <section id="title">
-    <h2 class="titleh2">Welcome to doctors portal</h2>
+    <h2 class="titleh2">Patients List</h2>
   </section>
 
 
-  <section class="content">
-
-    <div class="appointments">
-      Patients appointments list
+  <!-- =====Content===== -->
+    <section class="content">
+      <!-- 1st row -->
+      <div class="row">
+      <div class="col-sm">
+        Name
+      </div>
+      <div class="col-sm">
+        ID
+      </div>
+      <div class="col-sm">
+        <a href="patientInfo.html" class="btn btn-primary btn-color">More</a>
+      </div>
     </div>
-    <hr>
+  <br>
 
-    <div class="calendar">
-      calendar
+    <!-- 2nd row -->
+    <div class="row">
+    <div class="col-sm">
+      Name
     </div>
+    <div class="col-sm">
+      ID
+    </div>
+    <div class="col-sm">
+      <a href="patientInfo.html" class="btn btn-primary btn-color">More</a>
+    </div>
+  </div>
+  <br>
 
-  </section>
+  <!-- 3rd row -->
+  <div class="row">
+  <div class="col-sm">
+    Name
+  </div>
+  <div class="col-sm">
+    ID
+  </div>
+  <div class="col-sm">
+    <a href="patientInfo.html" class="btn btn-primary btn-color">More</a>
+  </div>
+  </div>
+
+    </section>
+
 
   <!-- Footer -->
   <div id="footer">

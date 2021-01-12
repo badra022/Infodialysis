@@ -16,6 +16,7 @@
 
   <!-- My CSS -->
   <link rel="stylesheet" href="css\registeration.css">
+  <link rel="stylesheet" href="css\people.css">
 
   <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap" rel="stylesheet">
@@ -30,13 +31,36 @@
 
 <body>
 
-  <div class="container-fluid container-fluid-nav">
+  <!-- Side Bar -->
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="patients.html">Home</a>
+    <a href="patientScans.html">Scans</a>
+    <a href="patientsAppointments.html">Appointments</a>
+    <a href="reqAppointment.html">Request an appointment</a>
+  </div>
+
+  <span class="sidebar-btn" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+
 
     <!-- Nav Bar -->
+  <div class="container-fluid container-fluid-nav">
+
+
 
 
     <nav class="navbar navbar-expand-lg navbar-light navbar-padding">
-      <a class="navbar-brand logo" href="index.html"> <i class="fas fa-hospital fa-2x"></i> </a>
+      <a class="navbar-brand logo" href="patients.html"> <i class="fas fa-hospital fa-2x"></i> </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -44,7 +68,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="patients.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="aboutus.html">About us</a>
@@ -62,13 +86,13 @@
 
       </div>
 
-
-      <!-- ============  When signed out  ============ -->
-      <div class="sign-btn">
-        <a class="btn btn-secondary" href="signin.html" role="button">Sign in</a>
-        <a class="btn btn-outline-secondary" href="register.html" role="button">Register</a>
+      <!-- ============  When signed in  ============ -->
+      <div class="sign-info dropdown">
+        <a class="nav-link dropdown-toggle" style="color:gray;" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hello, Name</a>
+        <div class="dropdown-menu navbar-bgcolor" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Log out</a>
+          </div>
       </div>
-
 
   </nav>
   </div>

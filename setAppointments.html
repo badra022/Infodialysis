@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Admin Tools</title>
+  <title>Set Appointments</title>
 
   <link rel="icon" href="images/favicon.ico">
 
@@ -16,6 +16,7 @@
 
   <!-- My CSS -->
   <link rel="stylesheet" href="css\people.css">
+  <link rel="stylesheet" href="css\registeration.css">
 
   <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap" rel="stylesheet">
@@ -89,39 +90,66 @@
         <a class="nav-link dropdown-toggle" style="color:gray;" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hello, Admin</a>
         <div class="dropdown-menu navbar-bgcolor" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Log out</a>
-          </div>
+        </div>
       </div>
   </div>
 
-  <section id="title">
-    <h2 class="titleh2">Welcome</h2>
-  </section>
+  <section id="signup">
 
+    <div class="container shadow-lg p-3 mb-5 bg-white rounded">
 
-  <section class="content">
+      <h1 class="regh1">Set an appointment</h1>
+      <form>
+        <div class="row mb-12">
+          <label for="inputEmail3" class="col-sm-12 col-form-label">Name of the patient</label>
+          <div class="col-sm-3 ml-auto mr-auto">
+            <input type="text" class="form-control" id="inputEmail3">
+          </div>
+        </div>
+        <br>
 
-    <h3>For Patients List</h3>
-    <a class="btn btn-primary btn-color" href="patientsList.html">Click Here</a>
-    <hr>
-    <h3>For Doctors List</h3>
-    <a class="btn btn-primary btn-color" href="doctorsList.html">Click Here</a>
-    <hr>
-    <h3>For the contact us form</h3>
-    <a class="btn btn-primary btn-color" href="msgs.html">Click Here</a>
-    <hr>
-    <h3>For the requested appointments</h3>
-    <a class="btn btn-primary btn-color" href="setAppointments.html">Click Here</a>
+        <div class="row mb-12">
+          <label for="inputEmail3" class="col-sm-12 col-form-label">Date</label>
+          <div class="col-sm-3 ml-auto mr-auto">
+            <input type="date" class="form-control" id="inputEmail3">
+          </div>
+        </div>
+        <br>
+        <div class="row mb-3">
+          <label for="inputPassword3" class="col-sm-12 col-form-label">Time</label>
+          <div class="col-sm-3 ml-auto mr-auto">
+            <input type="time" class="form-control" id="inputEmail3">
+          </div>
+        </div>
+        <br>
+        <div class="row mb-3">
+          <label for="inputPassword3" class="col-sm-12 col-form-label">Doctor</label>
+          <div class="col-sm-3 ml-auto mr-auto">
+            <input type="text" class="form-control" id="inputEmail3">
+          </div>
+        </div>
+        <br>
+        <div class="row mb-3">
+          <div class="col-sm-10 offset-sm-2">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-outline-primary btn-color">Submit</button>
+      </form>
 
-  </section>
+    </div>
 
-  <!-- Footer -->
-  <div id="footer">
-    <a class="footera" href="https://twitter.com"><i class="fab fa-twitter"></i></a>
-    <a class="footera" href="https://facebook.com"><i class="fab fa-facebook"></i></a>
-    <a class="footera" href="https://instagram.com"><i class="fab fa-instagram"></i></a>
-    <a class="footera" href="mailto:devhassanfathi@gmail.com"><i class="fas fa-envelope"></i></a>
-    <p class="footerp">© Copyright 2021 SBME 3rd year</p>
-  </div>
+</section>
+
+    <!-- </section> -->
+
+    <!-- Footer -->
+    <div id="footer">
+      <a class="footera" href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+      <a class="footera" href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+      <a class="footera" href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+      <a class="footera" href="mailto:devhassanfathi@gmail.com"><i class="fas fa-envelope"></i></a>
+      <p class="footerp">© Copyright 2021 SBME 3rd year</p>
+    </div>
 
 
 

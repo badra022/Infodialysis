@@ -6,7 +6,7 @@ hr{
   border:none;
   border-top:7px dotted #e1e1de;
   width:7%;
-  margin: 50px auto;
+  margin: 35px auto;
 }
 /* navbar */
 
@@ -86,6 +86,8 @@ hr{
   font-family: 'Ubuntu', sans-serif;
 
 }
+
+/* Content */
 .content{
   padding: 3% 20%;
   text-align: center;
@@ -110,6 +112,19 @@ hr{
 }
 .pic{
   width: 10%;
+  border-radius: 100%;
+}
+.writePost textarea{
+  color: gray;
+  resize: none;
+}
+.postPic{
+  width: 20%;
+  border-radius: 100%;
+  padding: 30px 0;
+}
+.post-body{
+  padding-left: 1.5rem;
 }
 
 /* Book an appointment */

@@ -1,0 +1,108 @@
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+/* ===============INDEX================== */
+
+/* navbar */
+.navbar-padding{
+  padding:0;
+}
+
+.container-fluid{
+padding: 1.5% 15%;
+text-align:center;
+}
+
+/* features */
+#title{
+  background-color: #308abc;
+  padding: 3% 7%;
+  text-align:center;
+}
+.title-img{
+  width:30%;
+}
+
+.titleh1{
+  padding-bottom: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 800;
+  color: white;
+}
+
+/* cards */
+#features{
+  text-align: center;
+  margin-top: 3%;
+}
+.card-features{
+  padding: 4% 15%;
+  position: relative;
+}
+.features-icon{
+  color: #68bbfb;
+  margin-bottom: 1.5rem;
+}
+.features-icon:hover{
+  color: #308abc;
+}
+.features-row{
+  padding: 4% 10%;
+}
+
+/* inf */
+#info{
+  padding: 3% 7%;
+  background-color: #68bbfb;
+}
+.info-col{
+  text-align: center;
+  color: white;
+    padding-top: 1rem;
+}
+.info-img{
+  padding-top: 2.5rem;
+}
+.infoh2{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 3rem;
+  padding-bottom: 1rem;
+
+}
+.infop{
+  line-height: 1.5;
+}
+
+/* appointments */
+#appointments{
+  padding: 3% 15%;
+  text-align: center;
+}
+.apph1{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+}
+.btn-color{
+  background-color: #308abc;
+  border-color: #308abc;
+}
+.btn-color:hover{
+  background-color: #68bbfb;
+  border-color: #68bbfb;
+}
+
+/* Footer */
+#footer{
+  background-color: #308abc;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  text-align: center;
+  color: white;
+}
+.footera{
+  color: white;
+}
+.footerp{
+  margin-top:10px;
+}
+/* ===============INDEX================== */

@@ -1,0 +1,167 @@
+{% extends "layout.html" %}
+{% block css  %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/people.css') }}">
+{% endblock %}
+{% block content %}
+
+{% if current_user.is_authenticated %}
+<section id="title">
+  <h2 class="titleh2">Welcome to our Blog</h2>
+</section>
+
+
+<section class="content" style="padding: 3% 10%;">
+
+  <div class="shadow-lg p-3 mb-5 bg-white rounded">
+
+    <!-- Write a post -->
+    <div class="writePost shadow-sm p-3 mb-5 bg-white rounded">
+      <div class="row">
+        <div class="col-sm col-md">
+          <img class="postPic" src="{{ url_for('static', filename='images/badawy.jpg') }}" alt="default-photo">
+        </div>
+        <div class="col-sm col-md" style="margin-right: 60px; text-align:cetner;">
+          <form class="" action="#" method="post">
+            <div class="form-group">
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="8">What's on your mind</textarea>
+            </div>
+          </form>
+        </div>
+        <a href="#" class="btn btn-primary btn-color btn-lg btn-block" style="margin-right: 2rem; margin-left: 2rem;">Post</a>
+      </div>
+
+    </div>
+
+  <!-- posts -->
+    <ul class="list-unstyled" style="text-align: left;">
+      <li class="media">
+        <img class="pic" src="{{ url_for('static', filename='images/ammar.jpg') }}" class="mr-3" alt="default-img">
+        <div class="media-body post-body">
+
+          <!-- Date label and delete btn -->
+          <h5 class="mt-0 mb-1" style="display:inline-block;">Name</h5>
+          <a href="#" class="btn btn-outline-danger btn-sm float-right">Delete</a>
+          <h6 class="mt-0 mb-1" style="font-size:0.75rem; color:#a7a6a6;">17/5/2021</h6>
+          <!-- Date label and delete btn -->
+
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis
+          in faucibus.
+        </div>
+      </li>
+      <hr>
+      <li class="media my-4">
+        <img class="pic" src="{{ url_for('static', filename='images/badawy.jpg') }}" class="mr-3" alt="default-img">
+        <div class="media-body post-body">
+          <h5 class="mt-0 mb-1">Name</h5>
+          <h6 class="mt-0 mb-1" style="font-size:0.75rem; color:#a7a6a6;">17/5/2021</h6>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis
+          in faucibus.
+        </div>
+      </li>
+      <hr>
+      <li class="media">
+        <img class="pic" src="{{ url_for('static', filename='images/hassan.jpg') }}" class="mr-3" alt="default-img">
+        <div class="media-body post-body">
+          <h5 class="mt-0 mb-1">Name</h5>
+          <h6 class="mt-0 mb-1" style="font-size:0.75rem; color:#a7a6a6;">17/5/2021</h6>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis
+          in faucibus.
+        </div>
+      </li>
+    </ul>
+    <br>
+
+    <!-- pagination -->
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+
+  </div>
+</section>
+{% else %}
+<section id="title">
+  <h2 class="titleh2">Welcome to our Blog</h2>
+</section>
+
+<section class="content" style="padding: 3% 10%;">
+
+  <div class="shadow-lg p-3 mb-5 bg-white rounded">
+<!-- posts -->
+  <ul class="list-unstyled" style="text-align: left;">
+    <li class="media">
+      <img class="pic" src="{{ url_for('static', filename='images/ammar.jpg') }}" class="mr-3" alt="default-img">
+      <div class="media-body post-body">
+
+        <!-- Date label and delete btn -->
+        <h5 class="mt-0 mb-1" style="display:inline-block;">Name</h5>
+        <a href="#" class="btn btn-outline-danger btn-sm float-right">Delete</a>
+        <h6 class="mt-0 mb-1" style="font-size:0.75rem; color:#a7a6a6;">17/5/2021</h6>
+        <!-- Date label and delete btn -->
+
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis
+        in faucibus.
+      </div>
+    </li>
+    <hr>
+    <li class="media my-4">
+      <img class="pic" src="{{ url_for('static', filename='images/badawy.jpg') }}" class="mr-3" alt="default-img">
+      <div class="media-body post-body">
+        <h5 class="mt-0 mb-1">Name</h5>
+        <h6 class="mt-0 mb-1" style="font-size:0.75rem; color:#a7a6a6;">17/5/2021</h6>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis
+        in faucibus.
+      </div>
+    </li>
+    <hr>
+    <li class="media">
+      <img class="pic" src="{{ url_for('static', filename='images/hassan.jpg') }}" class="mr-3" alt="default-img">
+      <div class="media-body post-body">
+        <h5 class="mt-0 mb-1">Name</h5>
+        <h6 class="mt-0 mb-1" style="font-size:0.75rem; color:#a7a6a6;">17/5/2021</h6>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis
+        in faucibus.
+      </div>
+    </li>
+  </ul>
+  <br>
+
+  <!-- pagination -->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+
+</div>
+</section>
+{% endif %}
+
+{% endblock %}

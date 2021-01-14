@@ -1,0 +1,74 @@
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* navbar */
+
+
+.navbar-padding{
+  padding:0;
+}
+.container-fluid{
+  padding: 1.5% 15%;
+  text-align: center;
+}
+
+/* form */
+
+#signup{
+  background-color: #68bbfb;
+  text-align: center;
+  color: black;
+  padding: 5rem 0;
+}
+.container{
+  background-color: #fff;
+  padding: 3% 10%;
+}
+.regh1{
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 800;
+}
+.reg-row{
+  padding:0 1.5rem;
+}
+.form-col{
+  text-align: left;
+}
+.regimg{
+  padding: 5rem 0 2rem 0;
+  width: 80%;
+}
+.rega{
+  color:black;
+
+}
+.btn-color{
+  background-color: #308abc;
+  border-color: #308abc;
+  color:white;
+}
+.btn-color:hover{
+  background-color: #68bbfb;
+  border-color: #68bbfb;
+}
+
+/* Footer */
+#footer{
+  background-color: #fff;
+
+  padding-top: 1rem;
+  text-align: center;
+  color: #308abc;
+}
+.footera{
+  color: #308abc;
+}
+.footera:hover{
+  color: #68bbfb;
+}
+.footerp{
+  margin-top:10px;
+}

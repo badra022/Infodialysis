@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block css  %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/about.css') }}">
+{% endblock %}
+{% block content %}
+
+<section id="title">
+  <!-- Tabs bar -->
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link navtab" href="{{ url_for('about', templateId =0) }}">Our Story</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link navtab" href="{{ url_for('about', templateId =1) }}">Team</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{{ url_for('about', templateId =2) }}">Contacts</a>
+    </li>
+  </ul>
+<h2 class="titleh2">Contact us</h2>
+</section>
+<div class="content">
+  <p><a class="contentanchor" href="mailt:devhassanfathi@gmail.com">Via Email</a></p>
+  <p>Or you can call us on: 0123456789</p>
+  <span>Or you can just send us a </span><a class="contentanchor" href="contactus.html">message</a>
+</div>
+{% endblock %}

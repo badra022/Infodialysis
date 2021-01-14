@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% block css  %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/registeration.css') }}">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/people.css') }}">
+{% endblock %}
+{% block content %}
+
+{% if current_user.type == 'patient' %}
+<section id="signup">
+  <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+
+    <h1 class="regh1">Request an Appointment</h1>
+
+        <form>
+          <div class="row mb-12">
+            <label for="inputEmail3" class="col-sm-12 col-form-label">Your name</label>
+            <div class="col-sm-3 ml-auto mr-auto">
+              <input type="text" class="form-control" id="inputEmail3">
+            </div>
+          </div>
+<br>
+          <div class="row mb-12">
+            <label for="inputEmail3" class="col-sm-12 col-form-label">Your Email</label>
+            <div class="col-sm-3 ml-auto mr-auto">
+              <input type="email" class="form-control" id="inputEmail3">
+            </div>
+          </div>
+<br>
+          <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-12 col-form-label">Pick a date</label>
+            <div class="col-sm-3 ml-auto mr-auto">
+              <input type="date" class="form-control" id="inputEmail3">
+            </div>
+          </div>
+<br>
+          <div class="row mb-3">
+            <div class="col-sm-10 offset-sm-2">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-outline-primary btn-color">Request</button>
+        </form>
+      </div>
+</section>
+{% else %}
+
+<section id="signup">
+
+  <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+
+    <h1 class="regh1">Set an appointment</h1>
+    <form>
+      <div class="row mb-12">
+        <label for="inputEmail3" class="col-sm-12 col-form-label">Name of the patient</label>
+        <div class="col-sm-3 ml-auto mr-auto">
+          <input type="text" class="form-control" id="inputEmail3">
+        </div>
+      </div>
+      <br>
+
+      <div class="row mb-12">
+        <label for="inputEmail3" class="col-sm-12 col-form-label">Date</label>
+        <div class="col-sm-3 ml-auto mr-auto">
+          <input type="date" class="form-control" id="inputEmail3">
+        </div>
+      </div>
+      <br>
+      <div class="row mb-3">
+        <label for="inputPassword3" class="col-sm-12 col-form-label">Time</label>
+        <div class="col-sm-3 ml-auto mr-auto">
+          <input type="time" class="form-control" id="inputEmail3">
+        </div>
+      </div>
+      <br>
+      <div class="row mb-3">
+        <label for="inputPassword3" class="col-sm-12 col-form-label">Doctor</label>
+        <div class="col-sm-3 ml-auto mr-auto">
+          <input type="text" class="form-control" id="inputEmail3">
+        </div>
+      </div>
+      <br>
+      <div class="row mb-3">
+        <div class="col-sm-10 offset-sm-2">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-outline-primary btn-color">Submit</button>
+    </form>
+
+  </div>
+
+</section>
+{% endif %}
+
+{% endblock %}

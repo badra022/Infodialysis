@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block css  %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/people.css') }}">
+{% endblock %}
+{% block content %}
+
+<section id="title">
+  <h2 class="titleh2">Received Messages</h2>
+</section>
+
+{% if current_user.type == 'admin' %}
+  {% for row in data %}
+    <section class="content">
+      <div class="row">
+        <div class="col-sm">
+          <h5>{{ row[1] }}</h5>
+        </div>
+
+        <div class="col-sm">
+          <p>{{ row[2] }}</p>
+        </div>
+
+      </div>
+
+    </section>
+  {% endfor %}
+{% endif %}
+{% endblock %}

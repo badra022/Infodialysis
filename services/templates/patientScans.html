@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block css  %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/people.css') }}">
+{% endblock %}
+{% block content %}
+
+<section id="title">
+  <h2 class="titleh2">View Your Scans</h2>
+</section>
+
+<!-- =====Content===== -->
+<section class="content">
+  <!-- 1st row -->
+  <div class="row">
+  <div class="col-sm">
+    Text
+  </div>
+  <div class="col-sm">
+    Text
+  </div>
+  <div class="col-sm">
+    <a href="#" class="btn btn-primary btn-color">Download</a>
+  </div>
+</div>
+<br>
+</section>
+{% endblock %}

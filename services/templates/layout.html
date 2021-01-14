@@ -40,7 +40,7 @@
 
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('account', usr= current_user.username) }}">Account</a>
     <a href="{{ url_for('patients', usr= current_user.username) }}">Patients</a>
     <a href="{{ url_for('doctors', usr= current_user.username) }}">Doctors</a>
     <a href="{{ url_for('forms', usr= current_user.username) }}">Contact us</a>
@@ -61,7 +61,7 @@
 
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('account', usr= current_user.username) }}">Account</a>
     <a href="{{ url_for('scans', usr= current_user.username) }}">Scans</a>
     <a href="{{ url_for('appointments', usr= current_user.username) }}">Request an Appointment</a>
   </div>
@@ -80,7 +80,7 @@
 
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('account', usr= current_user.username) }}">Account</a>
     <a href="{{ url_for('calendar', usr= current_user.username) }}">Calendar</a>
     <a href="{{ url_for('patients', usr= current_user.username) }}">patients</a>
   </div>
@@ -130,7 +130,7 @@
 
       {% if current_user.is_authenticated %}
       <!-- ============  When signed in  ============ -->
-      <img class="pp" src="{{ url_for('static', filename='images/ammar.jpg') }}" alt="Personal-img" style="  width: 4%; display: inline; border-radius: 100%;">
+      <img class="pp" src="{{ url_for('serve_img', email=current_user.email )}}" alt="Personal-img" style="  width: 4%; display: inline; border-radius: 100%;">
       <div class="sign-info dropdown ppdiv">
         <a class="nav-link dropdown-toggle ppa" style="color:gray;" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Hello, {{ current_user.username }}</a>
         <div class="dropdown-menu navbar-bgcolor" aria-labelledby="navbarDropdown">

@@ -101,8 +101,8 @@ class Image:
         self.mimetype = mimetype
 
     @classmethod
-    def create(self, imgVarName, email):
-        pic = request.files[imgVarName]
+    def create(self, pic, email):
+        # pic = request.files[imgVarName]
 
         if not pic:
             return False
@@ -110,10 +110,14 @@ class Image:
         self.mimetype = pic.mimetype
         conn = sqlite3.connect('database.sqlite')
         cur = conn.cursor()
-        cur.execute('''INSERT INTO img (img, name, mimetype) VALUES (?,?,?) WHERE email = ?''' ,
+        Image.delete(email)
+        cur.execute('''INSERT INTO img (img, imagename, mimetype,email) VALUES (?,?,?,?)''' ,
          (pic.read(),self.filename,self.mimetype,email, ) )
         conn.commit()
-        cur.execute('''INSERT INTO users (img_id) VALUES (?) WHERE email = ?''',(cur.rowcount,email, ) )
+        cur.execute('''SELECT img.id FROM img WHERE email = ?''', (email, ))
+        id = cur.fetchone()[0]
+        print(id, '*********************************************')
+        cur.execute('''UPDATE users SET img_id = ? WHERE email = ?''',(id,email, ) )
         conn.commit()
 
     @classmethod
@@ -201,7 +205,7 @@ class Account:
         # init the database
         conn = sqlite3.connect('database.sqlite')
         cur = conn.cursor()
-        cur.execute('''SELECT img.img, img.name, img.mimetype  FROM users JOIN img ON users.img_id = img.id WHERE email = ?''', (email, ))
+        cur.execute('''SELECT img.img, img.imagename, img.mimetype  FROM img WHERE email = ?''', (email, ))
         try:
             result = cur.fetchone()
             return Image(result[0], result[1], result[2])
@@ -210,10 +214,10 @@ class Account:
 
 
     @classmethod
-    def set_img(self, email, htmlName):
-        Image.create(htmlName, email)
+    def set_img(self, email, pic):
+        Image.create(pic, email)
 
     @classmethod
-    def update_img(self, email, htmlName):
+    def update_img(self, email, pic):
         Image.delete(email)
-        Image.create(htmlName, email)
+        Image.create(pic, email)

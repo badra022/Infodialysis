@@ -1,4 +1,4 @@
-from flask import render_template, url_for, flash, redirect, Response
+from flask import render_template, url_for, flash, redirect, Response, request, send_from_directory
 from services import app, bcrypt, login_manager
 from services.forms import RegistrationForm, LoginForm, ContactForm, BookAppointmentForm, scanForm
 from flask_login import UserMixin
@@ -13,8 +13,11 @@ def load_user(user_id):
 @app.route('/img/<email>')
 def serve_img(email):
     img = Account.get_img(email)
+    if not img:
+        return "url_for('static', filename='images/default-img.png')"
+    print('************************************************')
     return Response(img.img, img.mimetype)
-    #< img src = f"{{ url_for('serve_img', email={email} )}}" >
+    #< img src = "{{ url_for('serve_img', email=current_user.email )}}" >
 # **************************************************************************
 #                             ROOT
 # **************************************************************************
@@ -102,8 +105,11 @@ def logout():
 # **************************************************************************
 #                             ACCOUNT
 # **************************************************************************
-@app.route("/<usr>/account")
+@app.route("/<usr>/account", methods=['POST', 'GET'])
 def account(usr):
+    if request.method == 'POST':
+        pic = request.files['pic']
+        Account.set_img(current_user.email, pic)
     return render_template('account.html', title='Account')
 
 # **************************************************************************
@@ -167,5 +173,5 @@ def scans(usr):
 # **************************************************************************
 @app.route("/<usr>/calender")
 @login_required
-def calender(usr):
+def calendar(usr):
     return redirect(url_for('home'))

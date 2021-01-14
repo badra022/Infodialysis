@@ -10,7 +10,7 @@
 <section class="content-patientInfo">
 
   <div class="media">
-    <img src="{{ url_for('static', filename='images/ammar.jpg') }}" class="mr-3" alt="patient-img" style="width: 20%; border-radius: 100%;">
+    <img src="{{ url_for('serve_img', email=current_user.email )}}" class="mr-3" alt="img" style="width: 20%; border-radius: 100%;">
     <div class="media-body">
       <h5 class="mt-0">Name</h5>
       <p>ID</p>
@@ -25,7 +25,7 @@
 
 <section class="content-patientInfo">
   <div class="media">
-    <img src="{{ url_for('static', filename='images/ammar.jpg') }}" class="mr-3" alt="patient-img" style="width: 20%; border-radius: 100%;">
+    <img src="{{ url_for('serve_img', email=current_user.email ) }}" class="mr-3" alt="img" style="width: 20%; border-radius: 100%;">
     <div class="media-body">
       <h5 class="mt-0">Name</h5>
       <p>Email</p>
@@ -41,11 +41,11 @@
   <div class="container shadow-lg p-3 mb-5 bg-white rounded">
 
     <h1 class="regh1">Change your information</h1>
-    <form>
+    <form method='POST' action='http://127.0.0.1:5000/{{current_user.username}}/account' enctype="multipart/form-data">
       <div class="row mb-12">
-        <label for="inputEmail3" class="col-sm-12 col-form-label"><img src="{{ url_for('static', filename='images/badawy.jpg') }}" alt="personal-img" style="width:20%; border-radius: 100%;"></label>
+        <label for="inputEmail3" class="col-sm-12 col-form-label"><img src="{{ url_for('serve_img', email=current_user.email )}}" alt="personal-img" style="width:20%; border-radius: 100%;"></label>
         <div class="col-sm-3 ml-auto mr-auto">
-          <input type="file" class="form-control" id="inputEmail3">
+          <input type="file" class="form-control" id="inputEmail3" name = 'pic'>
         </div>
       </div>
       <br>
@@ -85,11 +85,11 @@
   <div class="container shadow-lg p-3 mb-5 bg-white rounded">
 
     <h1 class="regh1">Change your information</h1>
-    <form>
+    <form method='POST' action='http://127.0.0.1:5000/{{current_user.username}}/account' enctype="multipart/form-data">
       <div class="row mb-12">
-        <label for="inputEmail3" class="col-sm-12 col-form-label"><img src="{{ url_for('static', filename='images/badawy.jpg') }}" alt="personal-img" style="width:20%; border-radius: 100%;"></label>
+        <label for="inputEmail3" class="col-sm-12 col-form-label"><img src="{{ url_for('serve_img', email=current_user.email )}}" alt="personal-img" style="width:20%; border-radius: 100%;"></label>
         <div class="col-sm-3 ml-auto mr-auto">
-          <input type="file" class="form-control" id="inputEmail3">
+          <input type="file" class="form-control" id="inputEmail3" name='pic' />
         </div>
       </div>
       <br>

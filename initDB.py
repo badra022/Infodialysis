@@ -62,6 +62,7 @@ CREATE TABLE img(
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
     img TEXT,
     imagename TEXT,
+    email TEXT,
     mimetype TEXT
 );
 

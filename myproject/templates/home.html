@@ -73,13 +73,14 @@
 
   </section>
 
-
+{% if current_user.job == "patient" or not current_user.is_authenticated %}
   <!-- Appointments -->
   <section id="appointments">
     <h1 class="apph1">Want to book an appointment ?</h1>
     <p class="appp">It's easier now, litterally just a click of a button.</p>
-    <a href="#" class="btn btn-primary btn-lg btn-color">Click here</a>
+    <a href="{{ url_for('bookappointment') }}" class="btn btn-primary btn-lg btn-color">Click here</a>
   </section>
+  {% endif %}
 </div>
 
 {% endblock %}

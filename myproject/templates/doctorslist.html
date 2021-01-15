@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <section id="title">
+    <h2 class="titleh2">Doctors List</h2>
+  </section>
+
+
+  <!-- =====Content===== -->
+    <section class="content">
+      {% for doctor in doctors %}
+
+      <div class="row">
+      <div class="col-sm">
+        {{doctor.name}}
+      </div>
+      <div class="col-sm">
+        {{doctor.id}}
+      </div>
+      <div class="col-sm">
+        <a href="{{ url_for('doctorinfo', username=doctor.username) }}" class="btn btn-primary btn-color">More</a>
+      </div>
+    </div>
+  <br>
+  {% endfor %}
+
+
+    </section>
+
+
+  {% endblock %}

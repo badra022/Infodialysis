@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Registeration</title>
+  <title>Hemodialysis</title>
 
   <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
@@ -29,6 +29,7 @@
 </head>
 
 <body>
+
 
   <!-- Nav Bar -->
 
@@ -64,7 +65,7 @@
   </div>
   {% if get_flashed_messages() %}
   {% for mess in get_flashed_messages()  %}
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <div class="alert alert-primary alert-dismissible fade show" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close" class="fade close">
           <span aria-hidden="true">&times;</span>
         </button>

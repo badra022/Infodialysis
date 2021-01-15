@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+  <section id="title">
+    <h2 class="titleh2">Doctor Info</h2>
+  </section>
+
+
+  <!-- =====Content===== -->
+  <section class="content-patientInfo">
+
+    <div class="media">
+
+      <img src="{{ url_for('static', filename='profile_pics/' + user.profile_image) }}" class="mr-3" alt="patient-img" style="width: 20%; border-radius: 100%;">
+      <div class="media-body">
+        <h5 class="mt-0">{{doctor.name}}</h5>
+        <p>{{doctor.id}}</p>
+        <p>{{doctor.email}}</p>
+        <br>
+      </div>
+    </div>
+
+
+  </section>
+
+  {% endblock %}

@@ -1,0 +1,147 @@
+{% extends "base2.html" %}
+{% block content %}
+  <section id="signup">
+    <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+
+      <h1 class="regh1">Request an Appointment</h1>
+
+
+
+          <form method="POST">
+            {{ form.hidden_tag() }}
+
+            {% if current_user.is_authenticated %}
+            <div class="row mb-3">
+              {{form.date.label(class="col-sm-12 col-form-label")}}
+              <div class="col-sm-3 ml-auto mr-auto">
+                {% if form.date.errors %}
+                {{ form.date(class="form-control is-invalid" ) }}
+                      <div class="invalid-feedback">
+                  {% for error in form.date.errors %}
+                      <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                          {% else %}
+                {{ form.date(class="form-control") }}
+                          {% endif %}
+              </div>
+            </div>
+            <br>
+            <div class="row mb-3">
+              {{form.time.label(class="col-sm-12 col-form-label")}}
+              <div class="col-sm-3 ml-auto mr-auto">
+                {% if form.time.errors %}
+                {{ form.time(class="form-control is-invalid" ) }}
+                      <div class="invalid-feedback">
+                  {% for error in form.time.errors %}
+                      <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                          {% else %}
+                {{ form.time(class="form-control") }}
+                          {% endif %}
+              </div>
+            </div>
+
+            {% else %}
+
+
+            <div class="row mb-12">
+              {{form.name.label(class="col-sm-12 col-form-label")}}
+              <div class="col-sm-3 ml-auto mr-auto">
+                {% if form.name.errors %}
+                {{ form.name(class="form-control is-invalid" ) }}
+                      <div class="invalid-feedback">
+                  {% for error in form.name.errors %}
+                      <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                          {% else %}
+              {{ form.name(class="form-control") }}
+                          {% endif %}
+              </div>
+            </div>
+<br>
+
+            <div class="row mb-12">
+              {{ form.email.label(class="col-sm-12 col-form-label") }}
+              <div class="col-sm-3 ml-auto mr-auto">
+                {% if form.email.errors %}
+                {{ form.email(class="form-control is-invalid" ) }}
+                      <div class="invalid-feedback">
+                  {% for error in form.email.errors %}
+                      <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                          {% else %}
+                {{ form.email(class="form-control") }}
+                          {% endif %}
+              </div>
+            </div>
+<br>
+            <div class="row mb-12">
+              {{form.phone.label(class="col-sm-12 col-form-label")}}
+              <div class="col-sm-3 ml-auto mr-auto">
+                {% if form.phone.errors %}
+                {{ form.phone(class="form-control is-invalid" ) }}
+                      <div class="invalid-feedback">
+                  {% for error in form.phone.errors %}
+                      <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                          {% else %}
+              {{ form.phone(class="form-control") }}
+                          {% endif %}
+               </div>
+            </div>
+<br>
+            <div class="row mb-3">
+              {{form.date.label(class="col-sm-12 col-form-label")}}
+              <div class="col-sm-3 ml-auto mr-auto">
+                {% if form.date.errors %}
+                {{ form.date(class="form-control is-invalid" ) }}
+                      <div class="invalid-feedback">
+                  {% for error in form.date.errors %}
+                      <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                          {% else %}
+                {{ form.date(class="form-control") }}
+                          {% endif %}
+              </div>
+            </div>
+            <br>
+            <div class="row mb-3">
+              {{form.time.label(class="col-sm-12 col-form-label")}}
+              <div class="col-sm-3 ml-auto mr-auto">
+                {% if form.time.errors %}
+                {{ form.time(class="form-control is-invalid" ) }}
+                      <div class="invalid-feedback">
+                  {% for error in form.time.errors %}
+                      <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                          {% else %}
+                {{ form.time(class="form-control") }}
+                          {% endif %}
+              </div>
+            </div>
+
+
+            {% endif %}
+<br>
+            <div class="row mb-3">
+              <div class="col-sm-10 offset-sm-2">
+              </div>
+            </div>
+            {{ form.submit( class="btn btn-outline-primary btn-color") }}
+          </form>
+
+        </div>
+
+
+
+
+
+  </section>
+  {% endblock %}

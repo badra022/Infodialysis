@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+  <section id="title">
+    <h2 class="titleh2">Welcome to our Blog</h2>
+  </section>
+
+
+  <section class="content" style="padding: 3% 10%;">
+
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+
+      <!-- Write a post -->
+      <div class="writePost shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="row">
+          <div class="col-sm col-md">
+            <img class="postPic" src="{{ url_for('static', filename= "profile_pics/" + current_user.profile_image ) }}" alt="default-photo">
+          </div>
+          <div class="col-sm col-md" style="margin-right: 60px; text-align:cetner;">
+            <form method="post">
+              {{ form.hidden_tag() }}
+              <div class="form-group">
+                {% if form.text.errors %}
+                {{ form.text(rows="8", placeholder="What's on your mind",class="form-control is-invalid" ) }}
+                      <div class="invalid-feedback">
+                  {% for error in form.text.errors %}
+                      <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                          {% else %}
+              {{ form.text(rows="8", placeholder="What's on your mind", class="form-control") }}
+                          {% endif %}
+
+              </div>
+            </div>
+              {{ form.submit(class = "btn btn-primary btn-color btn-lg btn-block" , style="margin-right: 2rem; margin-left: 2rem") }}
+
+            </form>
+
+        </div>
+
+      </div>
+
+    <!-- posts -->
+    <ul class="list-unstyled" style="text-align: left;">
+      {% for blog_post in blog_posts %}
+      <li class="media">
+        <img class="picc" src="{{ url_for('static', filename= "profile_pics/" + blog_post.post.profile_image ) }}" class="mr-3" alt="default-img">
+        <div class="media-body post-body">
+
+          <!-- Date label and delete btn -->
+          <h5 class="mt-0 mb-1" style="display:inline-block;">{{blog_post.post.name}}</h5>
+          {% if blog_post.user_id == current_user.id  or current_user.job == "admin" %}
+          <a href="{{ url_for('delete_post' , blog_post_id = blog_post.id ) }}" class="btn btn-outline-danger btn-sm float-right">Delete</a>
+          {% endif %}
+          <h6 class="mt-0 mb-1" style="font-size:0.75rem; color:#a7a6a6;">published on: {{blog_post.date.strftime('%Y-%m-%d')}}</h6>
+          <!-- Date label and delete btn -->
+
+        {{blog_post.text}}
+        </div>
+      </li>
+      <hr>
+      {% endfor %}
+
+    </ul>
+  </div>
+</section>
+
+
+      {% endblock %}

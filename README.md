@@ -15,3 +15,8 @@
 * Admin
 
 ## Updated the home page
+ 
+## Admin email: admin@admin.com, Password: admin
+
+## References are in "ref.txt"
+

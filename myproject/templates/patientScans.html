@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <section id="title">
+    <h2 class="titleh2">View Your Scans</h2>
+  </section>
+
+<!-- =====Content===== -->
+  <section class="content">
+    <!-- 1st row -->
+    {% for img in scans %}
+    <div class="row">
+
+    <div class="col-sm">
+      File name : {{img.scan}}
+    </div>
+    <div class="col-sm">
+      <a href="{{ url_for('download', filename=img.scan) }}" class="btn btn-primary btn-color">Download</a>
+    </div>
+  </div>
+  <br>
+  <div class="text-center">
+  <img src="{{ url_for('static', filename= "scans/" + img.scan ) }}" class="rounded img-thumbnail" alt="scan-img" style= "width: 500px; height: 500px" >
+</div>
+<hr>
+{% endfor %}
+
+
+  </section>
+
+  {% endblock %}

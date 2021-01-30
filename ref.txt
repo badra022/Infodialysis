@@ -1,0 +1,3 @@
+https://stackoverflow.com/questions/24577349/flask-download-a-file
+https://pythonise.com/series/learning-flask/flask-uploading-files
+https://gist.github.com/nikhilkumarsingh/8a88be71243afe8d69390749d16c8322

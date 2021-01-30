@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <section id="title">
+
+    <!-- Tabs bar -->
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link navtab" href="{{ url_for('aboutus') }}">Our Story</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link navtab" href="{{ url_for('aboutus2') }}">Team</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{{ url_for('aboutus3') }}">Contacts</a>
+      </li>
+    </ul>
+
+<h2 class="titleh2">Contact us</h2>
+
+
+  </section>
+
+  <div class="content">
+    <p><a class="contentanchor" href="mailt:devhassanfathi@gmail.com">Via Email</a></p>
+    <p>Or you can call us on: 0123456789</p>
+    <span>Or you can just send us a </span><a class="contentanchor" href="{{ url_for('contact') }}">message</a>
+  </div>
+  {% endblock %}

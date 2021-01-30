@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <section id="title">
+    <h2 class="titleh2">View your appointments</h2>
+  </section>
+
+<!-- =====Content===== -->
+  <section class="content">
+    <!-- 1st row -->
+    {% for ap in aps %}
+    <div class="row">
+    <div class="col-sm">
+      Appointment ID: {{ap.id}}
+    </div>
+    <div class="col-sm">
+      Date: {{ap.date}}
+    </div>
+  </div>
+<hr>
+{% endfor %}
+
+
+  </section>
+  {% endblock %}

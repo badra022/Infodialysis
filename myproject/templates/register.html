@@ -1,0 +1,159 @@
+{% extends "base3.html" %}
+{% block content %}
+
+<section id="signup">
+  <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+
+    <h1 class="regh1">Register</h1>
+    <div class="row reg-row">
+
+      <div class="col-lg form-col">
+        <form method="POST">
+          {{ form.hidden_tag() }}
+
+          <div class="row mb-3">
+
+          {{form.name.label(class="col-sm-3 col-form-label")}}
+
+            <div class="col-sm-10">
+              {% if form.name.errors %}
+              {{ form.name(class="form-control is-invalid" ) }}
+                    <div class="invalid-feedback">
+                {% for error in form.name.errors %}
+                    <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                        {% else %}
+            {{ form.name(class="form-control") }}
+                        {% endif %}
+
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            {{ form.username.label(class="col-sm-3 col-form-label") }}
+
+            <div class="col-sm-10">
+              {% if form.username.errors %}
+              {{ form.username(class="form-control is-invalid" ) }}
+                    <div class="invalid-feedback">
+                {% for error in form.username.errors %}
+                    <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                        {% else %}
+            {{ form.username(class="form-control") }}
+                        {% endif %}
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            {{ form.email.label(class="col-sm-3 col-form-label") }}
+            <div class="col-sm-10">
+              {% if form.email.errors %}
+              {{ form.email(class="form-control is-invalid" ) }}
+                    <div class="invalid-feedback">
+                {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                        {% else %}
+            {{ form.email(class="form-control") }}
+                        {% endif %}
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            {{form.phone.label(class="col-sm-5 col-form-label")}}
+            <div class="col-sm-10">
+              {% if form.phone.errors %}
+              {{ form.phone(class="form-control is-invalid" ) }}
+                    <div class="invalid-feedback">
+                {% for error in form.phone.errors %}
+                    <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                        {% else %}
+            {{ form.phone(class="form-control") }}
+                        {% endif %}
+            </div>
+          </div>
+
+          <div class="row mb-3">
+              {{ form.password.label(class="col-sm-3 col-form-label") }}
+            <div class="col-sm-10">
+              {% if form.password.errors %}
+              {{ form.password(class="form-control is-invalid" ) }}
+                    <div class="invalid-feedback">
+                {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                        {% else %}
+            {{ form.password(class="form-control") }}
+                        {% endif %}
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            {{ form.pass_confirm.label(class="col-sm-5 col-form-label") }}
+
+            <div class="col-sm-10">
+              {% if form.pass_confirm.errors %}
+              {{ form.pass_confirm(class="form-control is-invalid" ) }}
+                    <div class="invalid-feedback">
+                {% for error in form.pass_confirm.errors %}
+                    <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                        {% else %}
+            {{ form.pass_confirm(class="form-control") }}
+                        {% endif %}
+            </div>
+          </div>
+          <fieldset class="row mb-3">
+            <div class="col-sm-10">
+              <div class="form-check">
+                {% if form.job.errors %}
+                {{ form.job(class="form-check-input is-invalid" ) }}
+                      <div class="invalid-feedback">
+                  {% for error in form.job.errors %}
+                  <br>
+                  <br>
+                  <br>
+                      <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                          {% else %}
+              {{ form.job(class="form-check-input") }}
+                          {% endif %}
+                {{form.job.label(class="form-check-label")}}
+
+              </div>
+
+            </div>
+          </fieldset>
+          <div class="row mb-3">
+            <div class="col-sm-10 offset-sm-2">
+            </div>
+          </div>
+          <br>
+          <br>
+          {{ form.submit( class="btn btn-outline-primary btn-color") }}
+          <span style="padding-left:10px">Or do you already have an account ?</span><a class="rega" href="{{ url_for('login') }}"> Click here</a>
+        </form>
+
+      </div>
+
+
+      <div class="col-lg">
+        <img class="regimg" src="{{ url_for('static', filename='welcome.png') }}" alt="doctor-img"><br><br>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{% endblock %}

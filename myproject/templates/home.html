@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <!-- Title -->
+  <section id="title">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <h1 class="titleh1">We have the best doctors in Egypt</h1>
+          <img class="title-img" src="{{ url_for('static', filename='doctor.png') }}" alt="doctor-img">
+        </div>
+        <div class="carousel-item">
+          <h1 class="titleh1">Guaranteed test results</h1>
+          <img class="title-img" src="{{ url_for('static', filename='results.png') }}" alt="results-img">
+        </div>
+        <div class="carousel-item">
+          <h1 class="titleh1">The newest hemodialysis machines</h1>
+          <img class="title-img" src="{{ url_for('static', filename='dialysis.png') }}" alt="results-img">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Features cards -->
+  <section id="features">
+
+
+    <div class="row features-row text-center">
+      <div class="col-lg-4 feature-box">
+        <i class="fas fa-map-marker-alt  fa-4x features-icon"></i>
+        <h2>Clinic in every government</h2><br>
+        <p>We are always near you</p>
+      </div>
+      <div class="col-lg-4 feature-box">
+        <i class="fas fa-notes-medical fa-4x features-icon"></i>
+        <h2>Thorough medical lab tests</h2><br>
+        <p>Our results are Guaranteed</p>
+      </div>
+      <div class="col-lg-4 feature-box">
+        <i class="fas fa-check-circle fa-4x features-icon"></i>
+        <h2>You're in really good hands</h2><br>
+        <p>You can count on us</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is hemodialysis -->
+  <section id="info">
+
+    <div class="row">
+      <div class="col-lg info-col">
+        <img src="{{ url_for('static', filename='info.jpg') }}" alt="dialysis-img" class="info-img">
+      </div>
+      <div class="col-lg info-col">
+        <h2 class="infoh2">What is hemodialysis ?</h2>
+        <p class="infop">Healthy kidneys clean your blood and remove extra fluid in the form of urine. They also make substances that keep your body healthy. Dialysis replaces some of these functions when your kidneys no longer work. There are two
+          different types of dialysis - hemodialysis and peritoneal dialysis. The following is about hemodialysis. For more information on peritoneal dialysis.</p>
+        <h2 class="infoh2">When is hemodialysis needed ?</h2>
+        <p>You need dialysis if your kidneys no longer remove enough wastes and fluid from your blood to keep you healthy. This usually happens when you have only 10 to 15 percent of your kidney function left. You may have symptoms such as nausea,
+          vomiting, swelling and fatigue. However, even if you don't have these symptoms yet, you can still have a high level of wastes in your blood that may be toxic to your body. Your doctor is the best person to tell you when you should start
+          dialysis.</p>
+      </div>
+    </div>
+
+
+  </section>
+
+{% if current_user.job == "patient" or not current_user.is_authenticated %}
+  <!-- Appointments -->
+  <section id="appointments">
+    <h1 class="apph1">Want to book an appointment ?</h1>
+    <p class="appp">It's easier now, litterally just a click of a button.</p>
+    <a href="{{ url_for('bookappointment') }}" class="btn btn-primary btn-lg btn-color">Click here</a>
+  </section>
+  {% endif %}
+</div>
+
+{% endblock %}

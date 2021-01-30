@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+  <section id="title">
+
+    <!-- Tabs bar -->
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link navtab" href="{{ url_for('aboutus') }}">Our Story</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active navtab" href="{{ url_for('aboutus2') }}">Team</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link navtab" href="{{ url_for('aboutus3') }}">Contacts</a>
+      </li>
+    </ul>
+
+    <h2 class="titleh2">Who are we</h2>
+
+
+  </section>
+
+  <div class="content-aboutus2">
+
+    <ul class="list-unstyled">
+  <li class="media">
+    <img class="mr-3 pic" src="{{ url_for('static', filename= 'badra.jpg') }}" alt="Generic placeholder image">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">Ahmed Mohamed</h5>
+      Doctor
+     </div>
+  </li>
+  <li class="media my-4">
+    <img class="mr-3 pic" src="{{ url_for('static', filename= 'badawy.jpg') }}" alt="Generic placeholder image">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">Ahmed Sayed</h5>
+    Doctor
+    </div>
+  </li>
+  <li class="media">
+    <img class="mr-3 pic" src="{{ url_for('static', filename= 'ammar.jpg') }}" alt="Generic placeholder image">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">Ammar Elsaeed</h5>
+    Doctor
+    </div>
+  </li>
+  <br>
+  <li class="media">
+    <img class="mr-3 pic" src="{{ url_for('static', filename= 'hassan.jpg') }}" alt="Generic placeholder image">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">Hassan Fathi</h5>
+    Manager
+    </div>
+  </li>
+  <br>
+  <li class="media">
+    <img class="mr-3 pic" src="{{ url_for('static', filename= 'youssef.jpg') }}" alt="Generic placeholder image">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">Youssef Mohamed</h5>
+    Doctor
+    </div>
+  </li>
+</ul>
+
+  </div>
+
+  {% endblock %}

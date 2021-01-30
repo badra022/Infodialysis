@@ -13,7 +13,6 @@
   [![GitHub contributors](https://img.shields.io/github/contributors/badra022/Infodialysis)](https://github.com/badra022/Infodialysis/contributors)
   [![GitHub license](https://img.shields.io/github/license/badra022/Infodialysis)](https://github.com/badra022/Infodialysis/blob/master/LICENSE)
   <img src="https://img.shields.io/github/languages/count/badra022/Infodialysis" />
-  <img src="https://img.shields.io/github/languages/top/badra022/Infodialysis" />
   <img src="https://img.shields.io/github/languages/code-size/badra022/Infodialysis" />
 
 

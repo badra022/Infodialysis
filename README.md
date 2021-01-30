@@ -1,5 +1,5 @@
 <div align="center">
-<a href="https://github.com/badra022/Hospital-management-website" rel="noopener">
+<a href="https://github.com/badra022/Infodialysis" rel="noopener">
   
   ![Component 16](https://files.fm/thumb_show.php?i=7r5pqn65q)
 
@@ -10,11 +10,11 @@
 
 <div align="center">
   
-  [![GitHub contributors](https://img.shields.io/github/contributors/badra022/Hospital-management-website)](https://github.com/badra022/Hospital-management-website/contributors)
-  [![GitHub license](https://img.shields.io/github/license/badra022/Hospital-management-website)](https://github.com/AbdallahHemdan/Hospital-management-website/blob/master/LICENSE)
-  <img src="https://img.shields.io/github/languages/count/badra022/Hospital-management-website" />
-  <img src="https://img.shields.io/github/languages/top/badra022/Hospital-management-website" />
-  <img src="https://img.shields.io/github/languages/code-size/badra022/Hospital-management-website" />
+  [![GitHub contributors](https://img.shields.io/github/contributors/badra022/Infodialysis)](https://github.com/badra022/Infodialysis/contributors)
+  [![GitHub license](https://img.shields.io/github/license/badra022/Infodialysis)](https://github.com/badra022/Infodialysis/blob/master/LICENSE)
+  <img src="https://img.shields.io/github/languages/count/badra022/Infodialysis" />
+  <img src="https://img.shields.io/github/languages/top/badra022/Infodialysis" />
+  <img src="https://img.shields.io/github/languages/code-size/badra022/Infodialysis" />
 
 
 </div>
@@ -37,11 +37,11 @@
 1. **_Clone the repository_**
 
 ```sh
-$ git clone https://github.com/badra022/Hospital-management-website.git
+$ git clone https://github.com/badra022/Infodialysis.git
 ```
 2. **_Navigate to repository directory_**
 ```sh
-$ cd Hospital-management-website
+$ cd Infodialysis
 ```
 ### Running
 ```sh
@@ -65,4 +65,4 @@ for admin login:
  </table>
 
 ## Licence
-[MIT Licence](https://github.com/badra022/Hospital-management-website/blob/master/LICENSE)
+[MIT Licence](https://github.com/badra022/Infodialysis/blob/master/LICENSE)
